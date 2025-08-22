@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dct0taivuhu32"]
+
+[ext_resource type="Script" uid="uid://h2l1ypjxe5ch" path="res://interaction/interaction_area.gd" id="1_wp0io"]
+
+[node name="InteractionArea" type="Node3D"]
+script = ExtResource("1_wp0io")
+action_name = null
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 2
