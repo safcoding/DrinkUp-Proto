@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7ljwjif74gns"
-path="res://.godot/imported/carno 2 Base Color_0.png-d3d8465b095cbc070e87d9bb0e4ef392.ctex"
+uid="uid://2xyuc0412m7s"
+path="res://.godot/imported/apple-icon.png-db1816b23d123a70907dd30feb04d10b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/textures/carno 2 Base Color_0.png"
-dest_files=["res://.godot/imported/carno 2 Base Color_0.png-d3d8465b095cbc070e87d9bb0e4ef392.ctex"]
+source_file="res://art/apple-icon.png"
+dest_files=["res://.godot/imported/apple-icon.png-db1816b23d123a70907dd30feb04d10b.ctex"]
 
 [params]
 
