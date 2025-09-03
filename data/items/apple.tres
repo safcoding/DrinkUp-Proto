@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://k4kbwtgq05ef"]
+
+[ext_resource type="Script" uid="uid://bjfvvlmko8yv0" path="res://scripts/item.gd" id="1_hpaic"]
+[ext_resource type="PackedScene" uid="uid://bxvei0dujypaw" path="res://scenes/apple.tscn" id="1_j163c"]
+
+[resource]
+script = ExtResource("1_hpaic")
+name = "apple"
+scene = ExtResource("1_j163c")
+metadata/_custom_type_script = "uid://bjfvvlmko8yv0"

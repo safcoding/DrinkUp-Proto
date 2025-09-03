@@ -40,3 +40,6 @@ func play_anim(dir):
 
 func player():
 	pass
+
+func on_item_picked_up(item:Item):
+	print("i got the ", item.name)

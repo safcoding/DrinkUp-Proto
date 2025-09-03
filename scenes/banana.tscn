@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cml8qofxwaxq0"]
+
+[ext_resource type="Texture2D" uid="uid://cm85vrhe5acxk" path="res://art/banana-icon.png" id="1_hilkf"]
+
+[node name="Banana" type="Node2D"]
+
+[node name="Banana-icon" type="Sprite2D" parent="."]
+position = Vector2(0, -9.53674e-07)
+scale = Vector2(0.0475694, 0.0418774)
+texture = ExtResource("1_hilkf")

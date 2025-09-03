@@ -34,6 +34,3 @@ func _on_pick_area_body_exited(body):
 func _on_grow_timer_timeout():
 	if state == "no apples":
 		state = "apples"
-
-
-#hi guys\
