@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://di1gmeg7cad4l"]
+
+[ext_resource type="PackedScene" uid="uid://ddmj3w874u6w4" path="res://scenes/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://b6ohtvr5d0l0q" path="res://scenes/pickup.tscn" id="3_sugp2"]
+[ext_resource type="Resource" uid="uid://dadpldcsk5ojo" path="res://data/items/cup/standard_cup.tres" id="4_tipki"]
+[ext_resource type="PackedScene" uid="uid://30n0n0oetc1o" path="res://data/workstations/water_dispenser/water_dispenser.tscn" id="5_85g3d"]
+[ext_resource type="Script" uid="uid://cnro0j8ojkm6v" path="res://scripts/ui_root.gd" id="5_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dbvbc5csgeqob" path="res://data/workstations/counter/counter.tscn" id="5_tipki"]
+[ext_resource type="PackedScene" uid="uid://u5qilv2417c" path="res://UI/inventory_dialog/inventory_dialog.tscn" id="6_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://polev8ot41oe" path="res://UI/crafting_dialog/crafting_dialog.tscn" id="8_tipki"]
+
+[node name="Main" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_ig7tw")]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.2, 2.2)
+
+[node name="cup_pickup" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(1, -56)
+item = ExtResource("4_tipki")
+
+[node name="WaterDispenser" parent="." instance=ExtResource("5_85g3d")]
+position = Vector2(82, -1)
+
+[node name="Counter" parent="." instance=ExtResource("5_tipki")]
+position = Vector2(82, 36)
+
+[node name="UIRoot" type="CanvasLayer" parent="."]
+script = ExtResource("5_tefeu")
+
+[node name="CraftingDialog" parent="UIRoot" instance=ExtResource("8_tipki")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -79.0
+offset_right = 81.0
+offset_bottom = 79.0
+
+[node name="InventoryDialog" parent="UIRoot" instance=ExtResource("6_o6xl0")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -17.5
+offset_right = 64.0
+offset_bottom = 17.5

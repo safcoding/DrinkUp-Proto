@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Cup" load_steps=3 format=3 uid="uid://dadpldcsk5ojo"]
+
+[ext_resource type="PackedScene" uid="uid://b06vdvdtc1pfa" path="res://data/items/test_cup.tscn" id="1_hkm1q"]
+[ext_resource type="Script" uid="uid://bj3nb1gr5wd53" path="res://data/items/cup/cup.gd" id="1_r27io"]
+
+[resource]
+script = ExtResource("1_r27io")
+name = "Standard Cup"
+scene = ExtResource("1_hkm1q")
+metadata/_custom_type_script = "uid://bj3nb1gr5wd53"

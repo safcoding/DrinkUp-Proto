@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcwhqmiqy7mf0"]
+
+[ext_resource type="Script" uid="uid://cgxradc4bmkkl" path="res://UI/item_slot/item_slot.gd" id="1_50eql"]
+[ext_resource type="Texture2D" uid="uid://2xyuc0412m7s" path="res://art/apple-icon.png" id="2_46bwp"]
+
+[node name="ItemSlot" type="PanelContainer"]
+offset_right = 57.0
+offset_bottom = 57.0
+script = ExtResource("1_50eql")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_46bwp")

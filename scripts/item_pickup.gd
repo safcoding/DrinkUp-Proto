@@ -6,9 +6,9 @@ func _ready():
 	var instance = item.scene.instantiate()
 	add_child(instance)
 	
-
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_method("on_item_picked_up"):
+	if body.has_method("on_item_picked_up") && body.inventory._content == null:
 		body.on_item_picked_up(item)
 		queue_free()
+	else:
+		print(body.inventory.get_item()," in inventory")

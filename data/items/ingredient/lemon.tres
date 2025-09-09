@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=4 format=3 uid="uid://bf7gilrucbxpk"]
+
+[ext_resource type="Texture2D" uid="uid://da6mbf4eaqcsn" path="res://art/lemon-icon.webp" id="1_6bty7"]
+[ext_resource type="PackedScene" uid="uid://bxvei0dujypaw" path="res://scenes/lemon.tscn" id="2_8y0qq"]
+[ext_resource type="Script" uid="uid://c4vplbvfe5tlw" path="res://data/items/ingredient/ingredient.gd" id="3_ojrt6"]
+
+[resource]
+script = ExtResource("3_ojrt6")
+sweetness = 1
+bitterness = 3
+creaminess = 0
+freshness = 5
+name = "Lemon"
+scene = ExtResource("2_8y0qq")
+icon = ExtResource("1_6bty7")
+metadata/_custom_type_script = "uid://c4vplbvfe5tlw"

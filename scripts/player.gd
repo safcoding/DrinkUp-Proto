@@ -41,5 +41,8 @@ func play_anim(dir):
 func player():
 	pass
 
+var inventory:Inventory =  Inventory.new()
+
 func on_item_picked_up(item:Item):
 	print("i got the ", item.name)
+	inventory.add_item(item)

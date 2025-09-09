@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://30n0n0oetc1o"]
+
+[ext_resource type="Texture2D" uid="uid://cf3w4h8xdw1bp" path="res://art/water-cooler-dispenser.png" id="1_5hijc"]
+[ext_resource type="Script" uid="uid://ck12riwd45i8g" path="res://data/workstations/water_dispenser/water_dispenser.gd" id="1_yv14c"]
+[ext_resource type="Resource" uid="uid://bysqij2u4svh5" path="res://data/items/ingredient/water.tres" id="2_i01ud"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i01ud"]
+radius = 28.0713
+
+[node name="WaterDispenser" type="Node2D"]
+script = ExtResource("1_yv14c")
+base_item = ExtResource("2_i01ud")
+
+[node name="Water-cooler-dispenser" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, 9.53674e-07)
+scale = Vector2(0.0565, 0.0565)
+texture = ExtResource("1_5hijc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_i01ud")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

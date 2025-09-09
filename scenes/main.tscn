@@ -1,26 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://di1gmeg7cad4l"]
+[gd_scene load_steps=6 format=3 uid="uid://di1gmeg7cad4l"]
 
 [ext_resource type="PackedScene" uid="uid://ddmj3w874u6w4" path="res://scenes/player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://c1ikefc57lavc" path="res://scenes/apple_tree.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://b6ohtvr5d0l0q" path="res://scenes/pickup.tscn" id="3_sugp2"]
-[ext_resource type="Resource" uid="uid://jlcv3n1u0g8q" path="res://data/items/banana.tres" id="4_jyhfs"]
+[ext_resource type="Resource" uid="uid://dadpldcsk5ojo" path="res://data/items/cup/standard_cup.tres" id="4_tipki"]
+[ext_resource type="PackedScene" uid="uid://30n0n0oetc1o" path="res://data/workstations/water_dispenser/water_dispenser.tscn" id="5_85g3d"]
+[ext_resource type="PackedScene" uid="uid://dbvbc5csgeqob" path="res://data/workstations/counter/counter.tscn" id="5_tipki"]
 
 [node name="Main" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_ig7tw")]
+unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.2, 2.2)
 
-[node name="apple_tree" parent="." instance=ExtResource("2_0wfyh")]
-position = Vector2(117, -60)
+[node name="cup_pickup" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(42, -33)
+item = ExtResource("4_tipki")
 
-[node name="apple_tree" parent="apple_tree" instance=ExtResource("2_0wfyh")]
-position = Vector2(-178, -9)
+[node name="cup_pickup2" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(-45, -35)
+item = ExtResource("4_tipki")
 
-[node name="pickup_item" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(29, 38)
+[node name="WaterDispenser" parent="." instance=ExtResource("5_85g3d")]
+position = Vector2(-3, 57)
 
-[node name="pickup_item2" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(-22, 38)
-item = ExtResource("4_jyhfs")
+[node name="Counter2" parent="." instance=ExtResource("5_tipki")]
+position = Vector2(-111, 53)
+
+[node name="Counter" parent="." instance=ExtResource("5_tipki")]
+position = Vector2(99, 56)
