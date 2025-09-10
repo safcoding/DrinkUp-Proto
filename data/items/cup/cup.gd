@@ -1,5 +1,5 @@
 class_name Cup
-extends Item
+extends Node2D
 
 var base:    Ingredient = null
 var flavour: Ingredient = null

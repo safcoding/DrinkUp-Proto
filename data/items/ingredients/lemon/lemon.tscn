@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxvei0dujypaw"]
+
+[ext_resource type="Script" uid="uid://c4vplbvfe5tlw" path="res://data/items/ingredients/lemon/lemon.gd" id="1_gx3lj"]
+[ext_resource type="Texture2D" uid="uid://da6mbf4eaqcsn" path="res://art/lemon-icon.webp" id="2_tkdry"]
+
+[node name="Lemon" type="Node2D"]
+script = ExtResource("1_gx3lj")
+item_name = "Lemon"
+bitterness = 3
+freshness = 3
+
+[node name="Lemon-icon" type="Sprite2D" parent="."]
+scale = Vector2(0.0203704, 0.0203704)
+texture = ExtResource("2_tkdry")

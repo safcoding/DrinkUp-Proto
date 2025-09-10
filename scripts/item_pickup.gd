@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var item:Item
+@export var item:Node
 
 func _ready():
 	var instance = item.scene.instantiate()

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://di1gmeg7cad4l"]
+
+[ext_resource type="PackedScene" uid="uid://ddmj3w874u6w4" path="res://scenes/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://b6ohtvr5d0l0q" path="res://scenes/pickup.tscn" id="3_sugp2"]
+
+[node name="Main" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_ig7tw")]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.2, 2.2)
+
+[node name="cup_pickup" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(42, -33)
+
+[node name="cup_pickup2" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(-45, -35)

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b06vdvdtc1pfa"]
+
+[ext_resource type="Script" uid="uid://bj3nb1gr5wd53" path="res://data/items/cup/cup.gd" id="1_eq4qn"]
+[ext_resource type="Texture2D" uid="uid://divh5eyut6vxv" path="res://art/XWh2CUDzRcQl5OqzNaTdeeXXa2V1V8tfHH42Yynb.png" id="2_u8obp"]
+
+[node name="Test Cup" type="Node2D"]
+script = ExtResource("1_eq4qn")
+
+[node name="XWh2cuDzRcQl5OqzNaTdeeXXa2v1v8TfHh42Yynb" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 4.76837e-07)
+scale = Vector2(0.0355, 0.0355)
+texture = ExtResource("2_u8obp")

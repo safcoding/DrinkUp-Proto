@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2nm5giv5a8n3"]
+
+[ext_resource type="Script" uid="uid://umndkbs7268a" path="res://data/workstations/lemon_box/lemon_box.gd" id="1_wk6td"]
+[ext_resource type="Texture2D" uid="uid://c7o2lr8gvd7e" path="res://art/a-wooden-crate-filled-with-several-bright-yellow-lemons-and-lemon-halves-on-a-simple-setting-transparent-background-png.webp" id="2_pi1sy"]
+[ext_resource type="PackedScene" uid="uid://bxvei0dujypaw" path="res://data/items/ingredients/lemon/lemon.tscn" id="2_ystna"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pi1sy"]
+radius = 19.0263
+
+[node name="LemonBox" type="Node2D"]
+script = ExtResource("1_wk6td")
+ingredient = ExtResource("2_ystna")
+
+[node name="A-wooden-crate-filled-with-several-bright-yellow-lemons-and-lemon-halves-on-a-simple-setting-transparent-background-png" type="Sprite2D" parent="."]
+scale = Vector2(0.1625, 0.1625)
+texture = ExtResource("2_pi1sy")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_pi1sy")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

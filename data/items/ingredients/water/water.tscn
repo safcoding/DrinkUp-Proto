@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5vayh1cgv8y0"]
+
+[ext_resource type="Script" uid="uid://dgxool3xulrw8" path="res://data/items/ingredients/water/water.gd" id="1_xojjb"]
+
+[node name="Water" type="Node2D"]
+script = ExtResource("1_xojjb")
+item_name = "Water"
+sweetness = -2
+bitterness = -2
+creaminess = -5

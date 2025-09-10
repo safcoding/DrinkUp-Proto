@@ -1,35 +1,38 @@
 extends Node2D
 
-@export var base_item: Ingredient
-@export var hold_time := 1.5
+@export var base_item_scene: PackedScene
+@export var hold_time :float
 
-var held_item = Item
-var player_in_range = false
-var is_holding = false
+var cup: Cup = null
+var player: Node = null
 var holding_time := 0.0
+var is_holding := false
 
 func _process(delta: float) -> void:
-	if player_in_range == true && held_item is Cup && held_item.base == null:
+	if cup != null and cup.base == null:
 		if Input.is_action_pressed("interact"):
-			holding_time +=delta
+			holding_time += delta
 			print(holding_time)
-			if holding_time >= hold_time:
-				held_item.add_base(base_item)
+			if not is_holding and holding_time >= hold_time:
+				var ingredient_instance = base_item_scene.instantiate() as Ingredient
+				cup.add_base(ingredient_instance)
+				is_holding = true 
 				holding_time = 0.0
-				print("pour complete")
-				print(held_item.get_content())
-		elif Input.is_action_just_released("interact") && holding_time <= hold_time:
+				print("Pour complete")
+				cup.get_content()
+		elif Input.is_action_just_released("interact"):
 			holding_time = 0.0
-			print("E released. time reset: ",holding_time)
+			is_holding = false  
+			print("E released. Time reset")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	player_in_range = true
-	if body.inventory._content != null:
-		held_item = body.inventory.get_item()
-		print(held_item.get_content())
-		print("hold E to fill the cup")
-	else:
-		print("yea ur not holding anything")
+	player = body
+	if body.inventory.get_item() is Cup:
+		cup = body.inventory.get_item()
+		print("Hold E to fill the cup")
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	player_in_range = false
+	player = null
+	cup = null
+	holding_time = 0.0
+	is_holding = false

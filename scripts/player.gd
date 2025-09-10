@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var speed = 100
 var  player_state
+@onready var hand: Node2D = %Hand
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
@@ -43,6 +44,9 @@ func player():
 
 var inventory:Inventory =  Inventory.new()
 
-func on_item_picked_up(item:Item):
-	print("i got the ", item.name)
-	inventory.add_item(item)
+func on_item_picked_up(item:Node2D):
+	if inventory.get_item() == null:
+		inventory.add_item(item)
+		Global.reparent_item(item,hand,Vector2(0,-16))
+	else:
+		print("hands full")
