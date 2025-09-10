@@ -16,14 +16,17 @@ var stats := {
 func add_base(ingredient: Ingredient):
 	base = ingredient
 	_recalculate_stats()
+	print_stats()
 
 func add_flavour(ingredient: Ingredient):
 	flavour = ingredient
 	_recalculate_stats()
+	print_stats()
 
 func add_topping(ingredient: Ingredient):
 	topping = ingredient
 	_recalculate_stats()
+	print_stats()
 	
 func _recalculate_stats():
 	for key in stats.keys():
@@ -34,7 +37,13 @@ func _recalculate_stats():
 			var ing_stats = ing.get_stats()
 			for key in stats.keys():
 				stats[key] += ing_stats.get(key,0)
-				
+
+func print_stats():
+	print("---CUP STATS---")
+	for key in stats.keys():
+		print(key,": ",stats[key])
+	print("---CUP STATS---")
+		
 func get_content():
 	if base == null && flavour == null && topping == null:
 		print("empty cup")
