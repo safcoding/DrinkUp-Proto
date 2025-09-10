@@ -4,7 +4,7 @@ var _content:Node = null
 
 func  add_item(item:Node):
 	if _content == null:
-		print("added ",item)
+		print("added ",item, "in inventory")
 		_content = item
 	else:
 		print(_content," in inventory")

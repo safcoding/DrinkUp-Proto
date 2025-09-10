@@ -6,17 +6,18 @@ var player: Node2D = null
 func _process(delta):
 	if player != null:
 		if Input.is_action_just_released("interact"):
-			if player.inventory.get_item() != null and counter_item == null:
+			var held = player.inventory.get_item()
+			if held != null and counter_item == null:
 				put_item()
-			elif player.inventory.get_item() == null and counter_item != null:
+			elif held == null and counter_item != null:
 				take_item()
+			elif held is Ingredient and counter_item is Cup:
+				fill_flavour(held)
 		
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("player in counter zone")
 	player = body
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	print("player left counter zone")
 	player = null
 
 func put_item():
@@ -29,3 +30,10 @@ func take_item():
 	player.on_item_picked_up(counter_item)
 	counter_item = null
 	print("picked up item")
+	
+func fill_flavour(item: Ingredient):
+	var new_flavour = item.duplicate()
+	counter_item.add_flavour(new_flavour)
+	print(counter_item.get_content())
+	player.inventory.remove_item()
+	item.queue_free()   
