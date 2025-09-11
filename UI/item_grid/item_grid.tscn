@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6wbf3a4wi7bd"]
-
-[ext_resource type="Script" uid="uid://xk21l1wxeiiv" path="res://UI/item_grid/item_grid.gd" id="1_xel02"]
-[ext_resource type="PackedScene" uid="uid://dcwhqmiqy7mf0" path="res://UI/item_slot/item_slot.tscn" id="2_eak3x"]
-
-[node name="ItemGrid" type="GridContainer"]
-columns = 3
-script = ExtResource("1_xel02")
-slot_scene = ExtResource("2_eak3x")

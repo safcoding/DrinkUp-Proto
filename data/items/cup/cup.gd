@@ -4,7 +4,7 @@ extends Node2D
 var base:    Ingredient = null
 var flavour: Ingredient = null
 var topping: Ingredient = null
-
+var price: int
 var stats := {
 	"sweetness": 0.0,
 	"bitterness": 0.0,
@@ -31,7 +31,6 @@ func add_topping(ingredient: Ingredient):
 func _recalculate_stats():
 	for key in stats.keys():
 		stats[key]= 0
-		
 	for ing in [base,flavour,topping]:
 		if ing != null:
 			var ing_stats = ing.get_stats()
@@ -43,10 +42,9 @@ func print_stats():
 	for key in stats.keys():
 		print(key,": ",stats[key])
 	print("---CUP STATS---")
-		
+
 func get_content():
 	if base == null && flavour == null && topping == null:
 		print("empty cup")
 	else:
 		print("Cup: ",base, " ",flavour," ",topping)
-	

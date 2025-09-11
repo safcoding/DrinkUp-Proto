@@ -1,11 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6ohtvr5d0l0q"]
+[gd_scene load_steps=3 format=3 uid="uid://dm5xwk3x2y6bk"]
 
-[ext_resource type="Script" uid="uid://byk81j288lggh" path="res://scripts/item_pickup.gd" id="1_weqpt"]
+[sub_resource type="GDScript" id="GDScript_p1s84"]
+script/source = "extends Node2D
+
+@export var item:Node
+
+func _ready():
+	var instance = item.scene.instantiate()
+	add_child(instance)
+	
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.has_method(\"on_item_picked_up\") && body.inventory._content == null:
+		body.on_item_picked_up(item)
+		queue_free()
+	else:
+		print(body.inventory.get_item(),\" in inventory\")
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sugp2"]
 
 [node name="pickup_item" type="Node2D"]
-script = ExtResource("1_weqpt")
+script = SubResource("GDScript_p1s84")
 
 [node name="Area2D" type="Area2D" parent="."]
 
