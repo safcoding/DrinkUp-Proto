@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://30n0n0oetc1o"]
 
 [ext_resource type="Texture2D" uid="uid://cf3w4h8xdw1bp" path="res://art/water-cooler-dispenser.png" id="1_5hijc"]
-[ext_resource type="Script" uid="uid://ck12riwd45i8g" path="res://data/workstations/water_dispenser/water_dispenser.gd" id="1_yv14c"]
+[ext_resource type="Script" uid="uid://ck12riwd45i8g" path="res://workstations/water_dispenser/water_dispenser.gd" id="1_yv14c"]
 [ext_resource type="PackedScene" uid="uid://b5vayh1cgv8y0" path="res://data/items/ingredients/water/water.tscn" id="2_i01ud"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i01ud"]

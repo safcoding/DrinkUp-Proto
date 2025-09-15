@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2nm5giv5a8n3"]
 
-[ext_resource type="Script" uid="uid://umndkbs7268a" path="res://data/workstations/lemon_box/lemon_box.gd" id="1_wk6td"]
+[ext_resource type="Script" uid="uid://umndkbs7268a" path="res://workstations/lemon_box/lemon_box.gd" id="1_wk6td"]
 [ext_resource type="Texture2D" uid="uid://c7o2lr8gvd7e" path="res://art/a-wooden-crate-filled-with-several-bright-yellow-lemons-and-lemon-halves-on-a-simple-setting-transparent-background-png.webp" id="2_pi1sy"]
 [ext_resource type="PackedScene" uid="uid://bxvei0dujypaw" path="res://data/items/ingredients/lemon/lemon.tscn" id="2_ystna"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbvbc5csgeqob"]
 
-[ext_resource type="Script" uid="uid://cvmbcri3mxu2q" path="res://data/workstations/counter/counter.gd" id="1_tg10n"]
+[ext_resource type="Script" uid="uid://cvmbcri3mxu2q" path="res://workstations/counter/counter.gd" id="1_tg10n"]
 [ext_resource type="Texture2D" uid="uid://cjha67h566cc3" path="res://art/Fixtures_counters_01_15.png" id="2_1nmgc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4hmi"]

@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://cooyxpodexr75"]
+
+[ext_resource type="Texture2D" uid="uid://bt0b744a56ves" path="res://art/DinoSprites - vita.png" id="1_2c3mv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmmwg"]
+atlas = ExtResource("1_2c3mv")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn4jp"]
+atlas = ExtResource("1_2c3mv")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgyk6"]
+atlas = ExtResource("1_2c3mv")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyy7l"]
+atlas = ExtResource("1_2c3mv")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tamf7"]
+atlas = ExtResource("1_2c3mv")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cslmy"]
+atlas = ExtResource("1_2c3mv")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5xyn"]
+atlas = ExtResource("1_2c3mv")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfglr"]
+atlas = ExtResource("1_2c3mv")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p00no"]
+atlas = ExtResource("1_2c3mv")
+region = Rect2(192, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_234x6"]
+atlas = ExtResource("1_2c3mv")
+region = Rect2(216, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s8r3n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmmwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn4jp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgyk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyy7l")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tamf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cslmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5xyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfglr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p00no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_234x6")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2c3mv"]
+radius = 4.0
+
+[node name="Customer" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s8r3n")
+animation = &"walk"
+frame_progress = 0.371182
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2c3mv")
+
+[node name="State Machine" type="Node" parent="."]
+
+[node name="Enter" type="Node" parent="State Machine"]
+
+[node name="Queue" type="Node" parent="State Machine"]
+
+[node name="Order" type="Node" parent="State Machine"]
+
+[node name="Wait" type="Node" parent="State Machine"]
+
+[node name="Leave" type="Node" parent="State Machine"]

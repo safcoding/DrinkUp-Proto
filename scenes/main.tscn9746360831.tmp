@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://di1gmeg7cad4l"]
+[gd_scene load_steps=9 format=3 uid="uid://di1gmeg7cad4l"]
 
 [ext_resource type="PackedScene" uid="uid://ddmj3w874u6w4" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://c2nm5giv5a8n3" path="res://workstations/lemon_box/lemon_box.tscn" id="2_0wfyh"]
@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://30n0n0oetc1o" path="res://workstations/water_dispenser/water_dispenser.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dbvbc5csgeqob" path="res://workstations/counter/counter.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://b06vdvdtc1pfa" path="res://data/items/cup/cup.tscn" id="4_tefeu"]
-[ext_resource type="Script" uid="uid://ba636kungad64" path="res://scenes/customer_spawner.gd" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://cooyxpodexr75" path="res://customer/customer.tscn" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://qe0ysrf8884i" path="res://customer/Queue/queue_manager.gd" id="8_tipki"]
 
 [node name="Main" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_ig7tw")]
 unique_name_in_owner = true
-position = Vector2(103, 36)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.2, 2.2)
@@ -39,31 +39,23 @@ position = Vector2(-66, 37)
 [node name="Counter4" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(-67, 73)
 
+[node name="Customer" parent="." instance=ExtResource("7_o6xl0")]
+position = Vector2(-156, -5)
+
 [node name="Queue" type="Node2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(-94, 41)
+position = Vector2(-101, 88)
+script = ExtResource("8_tipki")
 
 [node name="Marker2D" type="Marker2D" parent="Queue"]
-position = Vector2(0, 23)
 
 [node name="Marker2D2" type="Marker2D" parent="Queue"]
-position = Vector2(0, 43)
+position = Vector2(0, 14)
 
 [node name="Marker2D3" type="Marker2D" parent="Queue"]
-position = Vector2(0, 63)
+position = Vector2(0, 24)
 
 [node name="Marker2D4" type="Marker2D" parent="Queue"]
-position = Vector2(0, 83)
+position = Vector2(0, 34)
 
 [node name="Marker2D5" type="Marker2D" parent="Queue"]
-position = Vector2(-20, 83)
-
-[node name="CustomerSpawner" type="Node2D" parent="."]
-position = Vector2(-214, 102)
-script = ExtResource("7_o6xl0")
-
-[node name="Timer" type="Timer" parent="CustomerSpawner"]
-wait_time = 2.0
-autostart = true
-
-[connection signal="timeout" from="CustomerSpawner/Timer" to="CustomerSpawner" method="_on_timer_timeout"]
+position = Vector2(0, 44)
