@@ -1,10 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://cooyxpodexr75"]
+[gd_scene load_steps=16 format=3 uid="uid://cooyxpodexr75"]
 
 [ext_resource type="Texture2D" uid="uid://bt0b744a56ves" path="res://art/DinoSprites - vita.png" id="1_2c3mv"]
 [ext_resource type="Script" uid="uid://cmtildl4k5eim" path="res://customer/customer.gd" id="1_wgyk6"]
-[ext_resource type="Script" uid="uid://fc2qta61wldk" path="res://customer/states/state_machine.gd" id="3_wgyk6"]
-[ext_resource type="Script" uid="uid://d27h6cwtpr4jw" path="res://customer/states/order.gd" id="4_kyy7l"]
-[ext_resource type="Script" uid="uid://hvrcawv8bxvo" path="res://customer/wait.gd" id="5_kyy7l"]
+[ext_resource type="Script" uid="uid://fc2qta61wldk" path="res://customer/state_machine.gd" id="3_fn4jp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qmmwg"]
 atlas = ExtResource("1_2c3mv")
@@ -90,10 +88,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2c3mv"]
-radius = 11.0454
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgyk6"]
-size = Vector2(59, 31)
+radius = 4.0
 
 [node name="Customer" type="CharacterBody2D"]
 script = ExtResource("1_wgyk6")
@@ -103,31 +98,9 @@ sprite_frames = SubResource("SpriteFrames_s8r3n")
 animation = &"walk"
 frame_progress = 0.371182
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2c3mv")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="State Machine" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("3_wgyk6")
-
-[node name="Order" type="Node" parent="StateMachine"]
-script = ExtResource("4_kyy7l")
-
-[node name="Wait" type="Node" parent="StateMachine"]
-script = ExtResource("5_kyy7l")
-
-[node name="PlayerZone" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerZone"]
-position = Vector2(43, 0)
-shape = SubResource("RectangleShape2D_wgyk6")
-
-[node name="WaitTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="PlayerZone" to="." method="_on_player_zone_body_entered"]
-[connection signal="body_exited" from="PlayerZone" to="." method="_on_player_zone_body_exited"]
+script = ExtResource("3_fn4jp")
