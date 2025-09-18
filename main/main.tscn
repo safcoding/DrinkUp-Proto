@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://di1gmeg7cad4l"]
+[gd_scene load_steps=11 format=3 uid="uid://di1gmeg7cad4l"]
 
 [ext_resource type="PackedScene" uid="uid://ddmj3w874u6w4" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://c2nm5giv5a8n3" path="res://workstations/lemon_box/lemon_box.tscn" id="2_0wfyh"]
@@ -7,12 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://dbvbc5csgeqob" path="res://workstations/counter/counter.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://b06vdvdtc1pfa" path="res://data/items/cup/cup.tscn" id="4_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cooyxpodexr75" path="res://customer/customer.tscn" id="7_4dugh"]
+[ext_resource type="Script" uid="uid://bi0gc755bexng" path="res://Inventory/Blender/blender.gd" id="8_67ri8"]
+[ext_resource type="Texture2D" uid="uid://wt3rxrrwjyk8" path="res://art/blender.png" id="8_grrlh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bsumw"]
+radius = 531.0
 
 [node name="Main" type="Node2D"]
 
-[node name="player" parent="." instance=ExtResource("1_ig7tw")]
+[node name="player" parent="." groups=["players"] instance=ExtResource("1_ig7tw")]
 unique_name_in_owner = true
 position = Vector2(103, 36)
+collision_mask = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.2, 2.2)
@@ -45,3 +51,19 @@ position = Vector2(-163, 90)
 [node name="WaitArea" type="Marker2D" parent="." groups=["WaitArea"]]
 unique_name_in_owner = true
 position = Vector2(-169, -22)
+
+[node name="Blender" type="Area2D" parent="." groups=["blenders"]]
+position = Vector2(-3, 101)
+scale = Vector2(0.04125, 0.04125)
+collision_layer = 2
+script = ExtResource("8_67ri8")
+
+[node name="oldblender" type="Sprite2D" parent="Blender" groups=["blenders"]]
+texture = ExtResource("8_grrlh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blender/oldblender"]
+shape = SubResource("CircleShape2D_bsumw")
+one_way_collision_margin = 0.5
+
+[connection signal="body_entered" from="Blender" to="player" method="_on_blender_body_entered"]
+[connection signal="body_exited" from="Blender" to="player" method="_on_blender_body_exited"]
