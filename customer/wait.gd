@@ -1,20 +1,19 @@
-extends CustomerState
-class_name WaitState
+extends State
+
+@export var customer: Customer
+@onready var wait_area = get_tree().get_first_node_in_group("WaitArea")
+
+var assigned_marker: Marker2D = null
 
 func enter(previous_state_path: String, data := {}) -> void:
-	print("in wait state")
-	customer.target_pos = customer.wait_area.global_position
-	var timer = customer.wait_timer
-	timer.start()
-	
-func physics_update(_delta: float) -> void:
-	customer.dir = customer.target_pos - customer.global_position
-	var dir = customer.dir
-	if dir.length() >= 2.0:
-		customer.velocity = dir.normalized() * customer.speed
-		customer.move_and_slide()
+	assigned_marker = wait_area.get_available_marker()
+	if assigned_marker:
+		customer.set_target_location(assigned_marker.global_position)
+		customer.connect("target_reached", Callable(self, "_on_customer_arrived"), CONNECT_ONE_SHOT)
 	else:
-		customer.velocity = Vector2.ZERO
+		print("⚠ No free markers available!")
 
-func exit():
-	
+func exit() -> void:
+	if assigned_marker:
+		wait_area.release_marker(assigned_marker)
+		assigned_marker = null

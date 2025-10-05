@@ -127,6 +127,9 @@ shape = SubResource("RectangleShape2D_wgyk6")
 [node name="WaitTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="PlayerZone" to="." method="_on_player_zone_body_entered"]

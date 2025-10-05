@@ -1,4 +1,5 @@
 extends Node2D
+class_name Counter
 
 var counter_item: Node2D = null
 var player: Node2D = null
