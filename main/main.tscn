@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://di1gmeg7cad4l"]
+[gd_scene load_steps=11 format=3 uid="uid://di1gmeg7cad4l"]
 
+[ext_resource type="Script" uid="uid://cfnwsk0pyiktm" path="res://main/main.gd" id="1_grrlh"]
 [ext_resource type="PackedScene" uid="uid://ddmj3w874u6w4" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://c2nm5giv5a8n3" path="res://workstations/lemon_box/lemon_box.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cb35ee36mjl3b" path="res://workstations/cup_stack/cup_stack.tscn" id="2_jyhfs"]
@@ -8,13 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://b06vdvdtc1pfa" path="res://data/items/cup/cup.tscn" id="4_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cooyxpodexr75" path="res://customer/customer.tscn" id="7_4dugh"]
 [ext_resource type="PackedScene" uid="uid://cxq8j0t5jpcph" path="res://workstations/recipe_submitter/recipe_submitter.tscn" id="8_67ri8"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_67ri8"]
-vertices = PackedVector2Array(33.7969, 123.07, -120.43, 122.18, -124.156, -148.883, 36.6016, -148.883)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-130.3, 132.124, 43.6996, 133.124, 46.6996, -158.876, -134.3, -158.876)])
+[ext_resource type="Script" uid="uid://dkcm037lbqp71" path="res://main/astar_controller.gd" id="10_0i4oc"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_grrlh")
 
 [node name="player" parent="." instance=ExtResource("1_ig7tw")]
 unique_name_in_owner = true
@@ -43,7 +41,7 @@ position = Vector2(-66, 1)
 position = Vector2(-66, 37)
 
 [node name="Counter4" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(-67, 72)
+position = Vector2(-74, 114)
 
 [node name="Customer" parent="." instance=ExtResource("7_4dugh")]
 position = Vector2(-163, 90)
@@ -51,6 +49,21 @@ position = Vector2(-163, 90)
 [node name="RecipeSubmitter" parent="." instance=ExtResource("8_67ri8")]
 position = Vector2(-19, -110)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-position = Vector2(-128.7, 11.8757)
-navigation_polygon = SubResource("NavigationPolygon_67ri8")
+[node name="AstarController" type="Node" parent="."]
+script = ExtResource("10_0i4oc")
+
+[node name="orderMarker" type="Marker2D" parent="AstarController"]
+unique_name_in_owner = true
+position = Vector2(-91, 118)
+
+[node name="waitMarker" type="Marker2D" parent="AstarController"]
+unique_name_in_owner = true
+position = Vector2(-193, 16)
+
+[node name="pickupMarker" type="Marker2D" parent="AstarController"]
+unique_name_in_owner = true
+position = Vector2(-83, 1)
+
+[node name="exitMarker" type="Marker2D" parent="AstarController"]
+unique_name_in_owner = true
+position = Vector2(-107, -135)

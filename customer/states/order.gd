@@ -10,8 +10,8 @@ func pick_order():
 
 	customer.order = available_recipes.pick_random()
 	print("Customer ordered:", customer.order.name)
-	finished.emit("WaitState")
+	finished.emit("Wait")
 
 func accept_order():
 	print("exiting order state")
-	finished.emit("WaitState")
+	finished.emit("Wait")

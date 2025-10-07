@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cmtildl4k5eim" path="res://customer/customer.gd" id="1_wgyk6"]
 [ext_resource type="Script" uid="uid://fc2qta61wldk" path="res://customer/states/state_machine.gd" id="3_wgyk6"]
 [ext_resource type="Script" uid="uid://d27h6cwtpr4jw" path="res://customer/states/order.gd" id="4_kyy7l"]
-[ext_resource type="Script" uid="uid://hvrcawv8bxvo" path="res://customer/wait.gd" id="5_kyy7l"]
+[ext_resource type="Script" uid="uid://dq0uiw712s5q0" path="res://customer/states/wait.gd" id="5_kyy7l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qmmwg"]
 atlas = ExtResource("1_2c3mv")
