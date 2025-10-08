@@ -6,28 +6,34 @@ extends CharacterBody2D
 @onready var state_machine: StateMachine = %StateMachine
 @onready var wait_area = get_tree().get_first_node_in_group("WaitArea")
 @onready var wait_timer: Timer = %WaitTimer
-@onready var astar_controller := get_tree().get_first_node_in_group("AStarController")
 
-var path: PackedVector2Array = []
-var path_index := 0
+var astar_controller: AStarController = null
+var path = []
+var current_index := 0
 var order: Recipe = null
 var player_in_range:bool = false
 	
-func _physics_process(delta):
-	if path.size() == 0 or path_index >= path.size():
-		return
-	var target_point = path[path_index]
-	var direction = (target_point - global_position).normnalized()
-	velocity = direction *  speed
-	move_and_slide()
-	
-	if global_position.distance_to(target_point) < 5.0:
-		path_index += 1
-		
-func set_target(target_pos: Vector2):
-	if  astar_controller == null:
-		astar_controller = get_tree().get_first_node_in_group("AstarController")
+func _ready():
+	astar_controller = get_tree().get_first_node_in_group("AStarController")
+	print("AstarController found:", astar_controller)
 
+func _physics_process(delta):
+	if path.is_empty():
+		return
+	var target_pos = path[current_index]
+	var direction = (target_pos - global_position).normalized()
+	global_position += direction * speed * delta
+	
+	if global_position.distance_to(target_pos) < 5.0:
+		current_index += 1
+		if current_index >= path.size():
+			path.clear()
+
+func go_to(from:Marker2D, to:Marker2D):
+	path = astar_controller.get_customer_path(from.global_position,to.global_position)
+	print("passed ",from," | ", to, " to ", astar_controller)
+	current_index = 0
+	
 func accept_order():
 	if state_machine.state is OrderState:
 		state_machine.state.accept_order()

@@ -45,12 +45,12 @@ position = Vector2(-74, 114)
 
 [node name="Customer" parent="." instance=ExtResource("7_4dugh")]
 position = Vector2(-163, 90)
+speed = null
 
 [node name="RecipeSubmitter" parent="." instance=ExtResource("8_67ri8")]
 position = Vector2(-19, -110)
 
 [node name="AstarController" type="Node" parent="."]
-unique_name_in_owner = true
 script = ExtResource("10_0i4oc")
 
 [node name="orderMarker" type="Marker2D" parent="AstarController"]

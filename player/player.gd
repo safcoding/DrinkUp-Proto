@@ -7,7 +7,6 @@ var speed = 100
 var player_state
 var current_customer:Customer = null
 var inventory:Inventory = Inventory.new()
-
 var nearby_blender = null
 
 func _physics_process(delta):
