@@ -1,16 +1,21 @@
 extends Node2D
 
-class_name CustomerSpawner
+@onready var customer_scene = preload("res://customer/customer.gd")
+@onready var enter_marker: Marker2D = %enterMarker
+@onready var order_marker: Marker2D = %orderMarker
+@onready var wait_marker: Marker2D = %waitMarker
+@onready var pickup_marker: Marker2D = %pickupMarker
+@onready var exit_marker: Marker2D = %exitMarker
 
-@onready var queue_manager: QueueManager = %QueueManager
-@onready var customer = preload("res://customer/customer.tscn")
-
-func _on_timer_timeout() -> void:
-	if queue_manager.queue_check() == false:
-		var customer_instance = customer.instantiate()
-		customer_instance.position = position
-		get_parent().add_child(customer_instance)
-		queue_manager.add_customer(customer_instance)
-	else:
-		$Timer.start
-		print("Timer restarted")
+func spawn_customer():
+	var customer = customer_scene.instantiate()
+	get_tree().current_scene.add_child(customer)
+	customer.global_position = enter_marker.global_position
+	customer.set_markers({
+		"order": order_marker,
+		"wait": wait_marker,
+		"pickup": pickup_marker,
+		"exit": exit_marker
+	})
+	
+	return customer
