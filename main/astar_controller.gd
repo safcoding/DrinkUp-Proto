@@ -20,9 +20,10 @@ func _connect_points():
 	astar.connect_points(point_ids["orderMarker"], point_ids["waitMarker"])
 	astar.connect_points(point_ids["waitMarker"], point_ids["pickupMarker"])
 	astar.connect_points(point_ids["pickupMarker"], point_ids["exitMarker"])
+	for id in astar.get_point_ids():
+		print("Point:", id, "Connected to:", astar.get_point_connections(id))
 
 func get_customer_path(from_pos: Vector2, to_pos: Vector2) -> PackedVector2Array:
 	var from = astar.get_closest_point(from_pos)
 	var to = astar.get_closest_point(to_pos)
-	print("AstarController: returned ",from," | ",to)
 	return astar.get_point_path(from, to)

@@ -15,7 +15,6 @@ var player_in_range:bool = false
 	
 func _ready():
 	astar_controller = get_tree().get_first_node_in_group("AStarController")
-	print("AstarController found:", astar_controller)
 
 func _physics_process(delta):
 	if path.is_empty():
@@ -31,7 +30,6 @@ func _physics_process(delta):
 
 func go_to(from:Marker2D, to:Marker2D):
 	path = astar_controller.get_customer_path(from.global_position,to.global_position)
-	print("passed ",from," | ", to, " to ", astar_controller)
 	current_index = 0
 	
 func accept_order():
