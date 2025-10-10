@@ -117,6 +117,7 @@ script = ExtResource("4_kyy7l")
 
 [node name="Wait" type="Node" parent="StateMachine"]
 script = ExtResource("5_kyy7l")
+wait_time = null
 
 [node name="PlayerZone" type="Area2D" parent="."]
 
@@ -126,6 +127,7 @@ shape = SubResource("RectangleShape2D_wgyk6")
 
 [node name="WaitTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 60.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true

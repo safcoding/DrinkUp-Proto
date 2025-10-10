@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://di1gmeg7cad4l"]
+[gd_scene load_steps=12 format=3 uid="uid://di1gmeg7cad4l"]
 
 [ext_resource type="Script" uid="uid://dljhxnmgi4m5k" path="res://main/main.gd" id="1_grrlh"]
 [ext_resource type="PackedScene" uid="uid://ddmj3w874u6w4" path="res://player/player.tscn" id="1_ig7tw"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dbvbc5csgeqob" path="res://workstations/counter/counter.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://b06vdvdtc1pfa" path="res://data/items/cup/cup.tscn" id="4_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cxq8j0t5jpcph" path="res://workstations/recipe_submitter/recipe_submitter.tscn" id="8_67ri8"]
+[ext_resource type="PackedScene" uid="uid://b7i7nh3pc83yr" path="res://workstations/serve_counter/serve_counter.tscn" id="9_bsumw"]
 [ext_resource type="PackedScene" uid="uid://cooyxpodexr75" path="res://customer/customer.tscn" id="10_0i4oc"]
 [ext_resource type="Script" uid="uid://ba636kungad64" path="res://main/customer_spawner.gd" id="10_bsumw"]
 
@@ -44,7 +45,10 @@ position = Vector2(-66, 37)
 position = Vector2(-74, 114)
 
 [node name="RecipeSubmitter" parent="." instance=ExtResource("8_67ri8")]
-position = Vector2(-19, -110)
+position = Vector2(156, -88)
+
+[node name="Counter5" parent="." instance=ExtResource("9_bsumw")]
+position = Vector2(-64, -83)
 
 [node name="CustomerMarkers" type="Node" parent="."]
 
@@ -62,7 +66,7 @@ position = Vector2(-193, 16)
 
 [node name="pickupMarker" type="Marker2D" parent="CustomerMarkers"]
 unique_name_in_owner = true
-position = Vector2(-83, 1)
+position = Vector2(-79, -83)
 
 [node name="exitMarker" type="Marker2D" parent="CustomerMarkers"]
 unique_name_in_owner = true
