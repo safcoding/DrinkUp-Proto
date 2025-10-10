@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var customer_scene = preload("res://customer/customer.gd")
+@export var customer_scene: PackedScene
 @onready var enter_marker: Marker2D = %enterMarker
 @onready var order_marker: Marker2D = %orderMarker
 @onready var wait_marker: Marker2D = %waitMarker

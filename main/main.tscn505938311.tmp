@@ -54,7 +54,7 @@ position = Vector2(-236, 99)
 
 [node name="orderMarker" type="Marker2D" parent="CustomerMarkers"]
 unique_name_in_owner = true
-position = Vector2(-101, 117)
+position = Vector2(-91, 118)
 
 [node name="waitMarker" type="Marker2D" parent="CustomerMarkers"]
 unique_name_in_owner = true

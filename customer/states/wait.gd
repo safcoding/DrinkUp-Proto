@@ -5,4 +5,6 @@ class_name WaitState
 var waiting := false
 
 func enter(previous_state_path: String, data := {}) -> void:
-	print("Customer entered WaitState")
+	customer.go_to("wait")
+	await customer.target_reached
+	
