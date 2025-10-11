@@ -26,10 +26,11 @@ func submit_drink(cup):
 	recipe.name = "Custom Drink" 
 	recipe.ingredients = new_ingredients
 	recipe.active = true
+	recipe.total_price = recipe.calculate_price()
 	var save_path = "user://recipes/%s.tres" % recipe.id
 	ResourceSaver.save(recipe, save_path)
 	recipe_manager.register_recipe(recipe)
-	print("✅ New recipe saved:", recipe.name, "|", recipe.ingredients)
+	print("✅ New recipe saved:", recipe.name, "|", recipe.ingredients, "| $",recipe.total_price)
 
 func recipe_exists(new_ingredients: Dictionary) -> bool:
 	for recipe in recipe_manager.recipes:
@@ -39,7 +40,6 @@ func recipe_exists(new_ingredients: Dictionary) -> bool:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	player = body
-
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	player = null

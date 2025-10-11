@@ -8,6 +8,7 @@ script = ExtResource("1_gx3lj")
 item_name = "Lemon"
 bitterness = 3
 freshness = 3
+price = 5
 
 [node name="Lemon-icon" type="Sprite2D" parent="."]
 scale = Vector2(0.0203704, 0.0203704)
