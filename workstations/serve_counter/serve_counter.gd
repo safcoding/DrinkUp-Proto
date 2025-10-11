@@ -1,6 +1,8 @@
 extends Node2D
 class_name ServeCounter
 
+signal drink_ready
+
 var counter_item: Node2D = null
 var player: Node2D = null
 
@@ -21,4 +23,4 @@ func put_item():
 	counter_item = player.inventory.get_item()
 	player.inventory.remove_item()
 	Global.reparent_item(counter_item, self, Vector2.ZERO)
-	print("served ", counter_item, " on counter")
+	emit_signal("drink_ready")
