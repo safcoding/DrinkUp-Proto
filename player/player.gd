@@ -10,6 +10,9 @@ var player_state
 var current_customer:Customer = null
 var inventory:Inventory = Inventory.new()
 
+func _ready():
+	print ("Money: ",Global.player_money)
+	
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
 	if direction.x == 0 and direction.y == 0:

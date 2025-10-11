@@ -1,5 +1,7 @@
 extends Node
 
+var player_money := 0
+
 func reparent_item(item: Node2D, new_parent: Node, local_offset: Vector2 = Vector2.ZERO) -> void:
 	if item == null or new_parent == null:
 		return

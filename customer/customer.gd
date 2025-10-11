@@ -8,14 +8,12 @@ extends CharacterBody2D
 signal order_taken
 signal drink_ready
 signal drink_picked
-signal payment_done
 signal target_reached(marker_name)
 
-var current_index :int = 0
 var order: Recipe = null
 var player_in_range:bool = false
 var markers = {}
-var current_target: Marker2D
+var current_target
 var path = []
 var serve_counter: ServeCounter= null
 
@@ -27,12 +25,11 @@ func _physics_process(delta):
 		if global_position.distance_to(current_target.global_position) < 10:
 			velocity = Vector2.ZERO
 			emit_signal("target_reached")
-			print("Reached order spot")
+			print("Reached spot")
 			current_target = null
 
 func set_markers(marker_dict: Dictionary):
 	markers = marker_dict
-	print("Customer has markers: ", markers)
 
 func go_to(marker_name: String):
 	if markers.has(marker_name):

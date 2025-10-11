@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cooyxpodexr75"]
+[gd_scene load_steps=21 format=3 uid="uid://cooyxpodexr75"]
 
 [ext_resource type="Texture2D" uid="uid://bt0b744a56ves" path="res://art/DinoSprites - vita.png" id="1_2c3mv"]
 [ext_resource type="Script" uid="uid://cmtildl4k5eim" path="res://customer/customer.gd" id="1_wgyk6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://d27h6cwtpr4jw" path="res://customer/states/order.gd" id="4_kyy7l"]
 [ext_resource type="Script" uid="uid://dq0uiw712s5q0" path="res://customer/states/wait.gd" id="5_kyy7l"]
 [ext_resource type="Script" uid="uid://cehu3qfw52o18" path="res://customer/states/pickup.gd" id="6_tamf7"]
+[ext_resource type="Script" uid="uid://c657qhhc3uulm" path="res://customer/states/leave.gd" id="7_cslmy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qmmwg"]
 atlas = ExtResource("1_2c3mv")
@@ -121,6 +122,9 @@ script = ExtResource("5_kyy7l")
 
 [node name="Pickup" type="Node" parent="StateMachine"]
 script = ExtResource("6_tamf7")
+
+[node name="Leave" type="Node" parent="StateMachine"]
+script = ExtResource("7_cslmy")
 
 [node name="PlayerZone" type="Area2D" parent="."]
 

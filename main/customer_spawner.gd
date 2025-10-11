@@ -6,6 +6,7 @@ extends Node2D
 @onready var wait_marker: Marker2D = %waitMarker
 @onready var pickup_marker: Marker2D = %pickupMarker
 @onready var exit_marker: Marker2D = %exitMarker
+
 @onready var serve_counter: ServeCounter = %ServeCounter
 
 func spawn_customer():

@@ -2,7 +2,6 @@ extends CustomerState
 class_name OrderState
 
 func enter(previous_state_path: String, data := {}) -> void:
-	print("Entered Order State")
 	if not customer.markers or not customer.markers.has("order"):
 		await get_tree().process_frame
 	if not customer.is_connected("order_taken", Callable(self, "accept_order")):
