@@ -17,7 +17,8 @@ var player_in_range:bool = false
 var markers = {}
 var current_target: Marker2D
 var path = []
-	
+var serve_counter: ServeCounter= null
+
 func _physics_process(delta):
 	if current_target:
 		var direction = (current_target.global_position - global_position).normalized()

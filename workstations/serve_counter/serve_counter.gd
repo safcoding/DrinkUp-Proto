@@ -24,3 +24,4 @@ func put_item():
 	player.inventory.remove_item()
 	Global.reparent_item(counter_item, self, Vector2.ZERO)
 	emit_signal("drink_ready")
+	print("drink_ready signal sent")

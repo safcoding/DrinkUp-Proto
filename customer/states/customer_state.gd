@@ -3,8 +3,7 @@ class_name CustomerState
 
 const ORDER = "Order"
 const WAIT = "Wait"
-const GET_DRINK = "GetDrink"
-const PAY = "Pay"
+const PICKUP = "Pickup"
 const LEAVE = "Leave"
 
 var customer:Customer

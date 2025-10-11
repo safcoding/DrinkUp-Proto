@@ -1,19 +1,14 @@
 extends CustomerState
-class_name WaitState
 
-@export var wait_time := 5.0
-var waiting := false
+@export var serving_counter: NodePath  # assign in editor or pass via code
+@onready var counter: Node = get_node(serving_counter)
 
 func enter(previous_state_path: String, data := {}) -> void:
 	customer.go_to("wait")
 	await customer.target_reached
-	print("timer starts")
-	if not customer.is_connected("drink_ready", Callable(self, "pickup_drink")):
-		customer.connect("drink_ready", Callable(self, "pickup_drink"))
+	print("Customer reached waiting spot, waiting for drink...")
 
-func update(_delta:float):
-	if emit_signal("drink_ready"):
-		waiting = false
-		print("timer ends")
-		customer.go_to("pickup")
-	
+	await customer.serve_counter.drink_ready
+	print("Drink ready, going to pickup")
+
+	finished.emit("Pickup")

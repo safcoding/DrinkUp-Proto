@@ -13,13 +13,10 @@ func _process(delta):
 func take_item():
 	var new_item = cup.instantiate()
 	player.on_item_picked_up(new_item)
-	print("picked up cup")
 	count -= 1
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("player in cup stack zone")
 	player = body
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	print("player left cup stack zone")
 	player = null
