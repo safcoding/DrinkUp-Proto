@@ -99,6 +99,7 @@ size = Vector2(59, 31)
 
 [node name="Customer" type="CharacterBody2D"]
 script = ExtResource("1_wgyk6")
+speed = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s8r3n")

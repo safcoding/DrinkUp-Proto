@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="drink-proto-1"
-run/main_scene="uid://di1gmeg7cad4l"
+run/main_scene="uid://bmkufg4prw246"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

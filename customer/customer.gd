@@ -37,8 +37,9 @@ func go_to(marker_name: String):
 		print("Going to marker:", marker_name)
 	else:
 		push_warning("❌ Unknown marker: %s" % marker_name)
-
-func _on_player_zone_body_entered(body: Node2D) -> void:
+		
+"""
+func _on_player_zone_body_entered(body: Node3D) -> void:
 	if body is Player:
 		player_in_range = true
 		body.current_customer= self
