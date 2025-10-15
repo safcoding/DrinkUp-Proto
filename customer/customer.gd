@@ -38,7 +38,6 @@ func go_to(marker_name: String):
 	else:
 		push_warning("❌ Unknown marker: %s" % marker_name)
 		
-"""
 func _on_player_zone_body_entered(body: Node3D) -> void:
 	if body is Player:
 		player_in_range = true

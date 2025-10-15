@@ -17,7 +17,7 @@ script = ExtResource("1_grrlh")
 
 [node name="player" parent="." instance=ExtResource("1_ig7tw")]
 unique_name_in_owner = true
-position = Vector2(103, 36)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103, 36, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.2, 2.2)
