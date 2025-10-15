@@ -6,7 +6,6 @@ extends Node2D
 @export var bitterness: int = 0
 @export var creaminess: int = 0
 @export var freshness: int = 0
-@export var price: int = 0
 
 func get_stats() -> Dictionary:
 	return {
